@@ -104,20 +104,20 @@ public class InterficieGraficaAvanzada extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(240, 212, 184));
 
-        jButtonSuma.setText("+");
+        jButtonSuma.setText("^");
 
-        jButtonResta.setText("-");
+        jButtonResta.setText(">");
 
-        jButtonDivisio.setText("/");
+        jButtonDivisio.setText("%");
 
-        jButtonMultiplicacio.setText("x");
+        jButtonMultiplicacio.setText("<");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonSuma)
                     .addComponent(jButtonMultiplicacio))

@@ -21,8 +21,9 @@ public class InterficieGrafica extends javax.swing.JFrame {
         gCal = new GestioCalculadoraGui(this);
         initComponents();
         this.setLocationRelativeTo(null);// centra el formulari en la pantalla
-        inicia();
+        inicia();   
     }
+
 /**
  * Es configuren els objectes dels butons perquè la classe que farà de Listener
  * de l'esdeveniment click (tipus ActionEvent) serà GestioCalculadoraGui

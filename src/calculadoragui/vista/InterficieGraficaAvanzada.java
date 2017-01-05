@@ -29,10 +29,14 @@ public class InterficieGraficaAvanzada extends javax.swing.JFrame {
  * de l'esdeveniment click (tipus ActionEvent) serà GestioCalculadoraGui
  */
     private void inicia() {
+        jButtonPotencia.addActionListener(gCalAv);
+        jButtonModul.addActionListener(gCalAv);
+        jButtonMax.addActionListener(gCalAv);
+        jButtonMin.addActionListener(gCalAv);
         jButtonSuma.addActionListener(gCalAv);
-        jButtonDivisio.addActionListener(gCalAv);
         jButtonResta.addActionListener(gCalAv);
         jButtonMultiplicacio.addActionListener(gCalAv);
+        jButtonDivisio.addActionListener(gCalAv);
     }
 
     /**
@@ -81,10 +85,14 @@ public class InterficieGraficaAvanzada extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextFieldResultat = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jButtonPotencia = new javax.swing.JButton();
+        jButtonMax = new javax.swing.JButton();
+        jButtonModul = new javax.swing.JButton();
+        jButtonMin = new javax.swing.JButton();
         jButtonSuma = new javax.swing.JButton();
         jButtonResta = new javax.swing.JButton();
-        jButtonDivisio = new javax.swing.JButton();
         jButtonMultiplicacio = new javax.swing.JButton();
+        jButtonDivisio = new javax.swing.JButton();
         jButtonNetejar = new javax.swing.JButton();
         jButtonSortir = new javax.swing.JButton();
 
@@ -104,33 +112,56 @@ public class InterficieGraficaAvanzada extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(240, 212, 184));
 
-        jButtonSuma.setText("^");
+        jButtonPotencia.setText("^");
 
-        jButtonResta.setText(">");
+        jButtonMax.setText(">");
 
-        jButtonDivisio.setText("%");
+        jButtonModul.setText("%");
 
-        jButtonMultiplicacio.setText("<");
+        jButtonMin.setText("<");
+
+        jButtonSuma.setText("+");
+        jButtonSuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSumaActionPerformed(evt);
+            }
+        });
+
+        jButtonResta.setText("-");
+
+        jButtonMultiplicacio.setText("*");
+
+        jButtonDivisio.setText("/");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonSuma)
-                    .addComponent(jButtonMultiplicacio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonDivisio)
-                    .addComponent(jButtonResta))
-                .addGap(25, 25, 25))
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonSuma)
+                            .addComponent(jButtonMultiplicacio))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonDivisio)
+                            .addComponent(jButtonResta)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonPotencia)
+                            .addComponent(jButtonMin))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonModul)
+                            .addComponent(jButtonMax))))
+                .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButtonSuma)
                     .addComponent(jButtonResta))
@@ -138,7 +169,15 @@ public class InterficieGraficaAvanzada extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonMultiplicacio)
                     .addComponent(jButtonDivisio))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonPotencia)
+                    .addComponent(jButtonMax))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonMin)
+                    .addComponent(jButtonModul))
+                .addContainerGap())
         );
 
         jButtonNetejar.setText("Netejar");
@@ -194,10 +233,10 @@ public class InterficieGraficaAvanzada extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jTextFieldOper1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,11 +267,19 @@ public class InterficieGraficaAvanzada extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButtonSortirActionPerformed
 
+    private void jButtonSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSumaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSumaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonDivisio;
+    private javax.swing.JButton jButtonMax;
+    private javax.swing.JButton jButtonMin;
+    private javax.swing.JButton jButtonModul;
     private javax.swing.JButton jButtonMultiplicacio;
     private javax.swing.JButton jButtonNetejar;
+    private javax.swing.JButton jButtonPotencia;
     private javax.swing.JButton jButtonResta;
     private javax.swing.JButton jButtonSortir;
     private javax.swing.JButton jButtonSuma;
